@@ -37,28 +37,28 @@
   </head>
   <body>
     <header style="display: flex; align-items: center; gap: 18px; margin-bottom: 38px;">
-  <svg id="theo-logo" width="44" height="44" viewBox="0 0 44 44" style="flex-shrink:0; will-change: transform;">
-    <circle cx="22" cy="22" r="18" fill="#a0c4ff" />
-    <circle cx="22" cy="18" r="6" fill="#4361ee" />
-    <ellipse cx="22" cy="30" rx="8" ry="4" fill="#edf2fb" />
-    <!-- Add a smile or other fun features as you like -->
-  </svg>
-  <h1 style="font-size: 2.2rem; color: #4361ee; font-family: 'Segoe UI', Arial, sans-serif; margin: 0;">
-    theo home
-  </h1>
-  <script>
-    // Animate the SVG logo: gentle up/down floating
-    const svg = document.getElementById('theo-logo');
-    let t = 0;
-    function animate() {
-      t += 0.04;
-      const y = Math.sin(t) * 6;
-      svg.style.transform = `translateY(${y}px)`;
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
-</header>
+      <svg id="theo-logo" width="44" height="44" viewBox="0 0 44 44" style="flex-shrink:0; will-change: transform;">
+        <circle cx="22" cy="22" r="18" fill="#a0c4ff" />
+        <circle cx="22" cy="18" r="6" fill="#4361ee" />
+        <ellipse cx="22" cy="30" rx="8" ry="4" fill="#edf2fb" />
+        <!-- Add a smile or other fun features as you like -->
+      </svg>
+      <h1 style="font-size: 2.2rem; color: #4361ee; font-family: 'Segoe UI', Arial, sans-serif; margin: 0;">
+        theo home
+      </h1>
+      <script>
+        // Animate the SVG logo: gentle up/down floating
+        const svg = document.getElementById('theo-logo');
+        let t = 0;
+        function animate() {
+          t += 0.04;
+          const y = Math.sin(t) * 6;
+          svg.style.transform = `translateY(${y}px)`;
+          requestAnimationFrame(animate);
+        }
+        animate();
+      </script>
+    </header>
     <h3>Useful links for Theo:</h3>
     <ul>
       <li><a href="https://www.gmail.com" target="_blank">Gmail</a></li>
