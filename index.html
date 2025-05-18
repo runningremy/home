@@ -1,76 +1,171 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Theo | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-      body {
-        background: linear-gradient(135deg, #f8fafc, #a0c4ff 80%);
-        color: #22223b;
-        font-family: 'Segoe UI', Arial, sans-serif;
+      :root {
+        --primary: #4361ee;
+        --accent: #3a86ff;
+        --bg: #f8fafc;
+        --surface: #ffffffcc;
+        --shadow: 0 8px 32px rgba(67,97,238,0.12);
+        --radius: 20px;
+        --link-hover: #ff006e;
+      }
+
+      html, body {
+        height: 100%;
         margin: 0;
-        padding: 40px;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        background: linear-gradient(120deg, #f8fafc 0%, #a0c4ff 100%);
+        color: #22223b;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background: var(--surface);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 48px 42px 36px 42px;
+        max-width: 420px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backdrop-filter: blur(2px);
+        border: 1.5px solid #e3e9f7;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        width: 100%;
+        justify-content: center;
+      }
+      #theo-logo {
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 8px rgba(67,97,238,0.11));
+        transition: transform 0.2s;
+      }
+      #theo-logo:hover {
+        transform: scale(1.08) rotate(-3deg);
+      }
+      h1 {
+        font-size: 2.1rem;
+        color: var(--primary);
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 10px #a0c4ff44;
       }
       h3 {
-        color: #4361ee;
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-weight: 600;
       }
       ul {
-        background: #edf2fb;
+        background: #edf2fbcc;
         border-radius: 12px;
-        padding: 24px;
+        padding: 18px 18px 18px 30px;
+        margin-bottom: 26px;
+        box-shadow: 0 2px 10px rgba(67,97,238,0.06);
+        width: 100%;
         max-width: 350px;
-        box-shadow: 0 4px 12px rgba(67,97,238,0.08);
+        transition: box-shadow 0.2s;
+        border: 1px solid #dde3f3;
       }
+      ul:last-of-type { margin-bottom: 0; }
       li {
-        margin: 12px 0;
+        margin: 14px 0;
+        font-size: 1.05rem;
+        list-style: disc;
       }
       a {
-        color: #3a86ff;
+        color: var(--accent);
         text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s;
+        font-weight: 600;
+        position: relative;
+        transition: color 0.25s;
+      }
+      a::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: var(--link-hover);
+        transition: width 0.25s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
       }
       a:hover {
-        color: #ff006e;
-        text-decoration: underline;
+        color: var(--link-hover);
+      }
+      a:hover::after {
+        width: 100%;
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 22px 8px 16px 8px;
+          max-width: 98vw;
+        }
+        ul {
+          max-width: 100vw;
+        }
+        header {
+          gap: 10px;
+        }
+        h1 {
+          font-size: 1.4rem;
+        }
       }
     </style>
   </head>
   <body>
-    <header style="display: flex; align-items: center; gap: 18px; margin-bottom: 38px;">
-      <svg id="theo-logo" width="44" height="44" viewBox="0 0 44 44" style="flex-shrink:0; will-change: transform;">
-        <circle cx="22" cy="22" r="18" fill="#a0c4ff" />
-        <circle cx="22" cy="18" r="6" fill="#4361ee" />
-        <ellipse cx="22" cy="30" rx="8" ry="4" fill="#edf2fb" />
-        <!-- Add a smile or other fun features as you like -->
-      </svg>
-      <h1 style="font-size: 2.2rem; color: #4361ee; font-family: 'Segoe UI', Arial, sans-serif; margin: 0;">
-        theo home
-      </h1>
-      <script>
-        // Animate the SVG logo: gentle up/down floating
-        const svg = document.getElementById('theo-logo');
-        let t = 0;
-        function animate() {
-          t += 0.04;
-          const y = Math.sin(t) * 6;
-          svg.style.transform = `translateY(${y}px)`;
-          requestAnimationFrame(animate);
-        }
-        animate();
-      </script>
-    </header>
-    <h3>Useful links for Theo:</h3>
-    <ul>
-      <li><a href="https://www.gmail.com" target="_blank">Gmail</a></li>
-      <li><a href="https://www.wunderground.com/weather/us/pa/butler" target="_blank">Butler Weather</a></li>
-      <li><a href="https://accounts.google.com/Logout" target="_blank">Google Logout</a></li>
-    </ul>
-    <h3>Jobs Interested In:</h3>
-    <ul>
-      <li><a href="https://www.indeed.com/viewjob?jk=75bfdd461dc3478b&from=shareddesktop_copy">Google Writer</a></li>
-      <li><a href="https://www.indeed.com/viewjob?jk=20eeadd5194a08b7&from=shareddesktop_copy">NexTier Analyst</a></li>
-      <li><a href="https://g.co/kgs/ZD4YBWs">Sustainability Analyst CBRE</a></li>
-      <li><a href="https://g.co/kgs/BPhE8AY">Conversational AI Analyst</a></li>
-    </ul>
+    <div class="container">
+      <header>
+        <svg id="theo-logo" width="44" height="44" viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r="18" fill="#a0c4ff" />
+          <circle cx="22" cy="18" r="6" fill="#4361ee" />
+          <ellipse cx="22" cy="30" rx="8" ry="4" fill="#edf2fb" />
+          <path d="M17 29 Q22 35 27 29" stroke="#4361ee" stroke-width="2" fill="none" />
+        </svg>
+        <h1>theo home</h1>
+        <script>
+          // Animate the SVG logo: gentle up/down floating
+          const svg = document.getElementById('theo-logo');
+          let t = 0;
+          function animate() {
+            t += 0.04;
+            const y = Math.sin(t) * 6;
+            svg.style.transform = `translateY(${y}px)`;
+            requestAnimationFrame(animate);
+          }
+          animate();
+        </script>
+      </header>
+      <h3>Useful links for Theo:</h3>
+      <ul>
+        <li><a href="https://www.gmail.com" target="_blank">Gmail</a></li>
+        <li><a href="https://www.wunderground.com/weather/us/pa/butler" target="_blank">Butler Weather</a></li>
+        <li><a href="https://accounts.google.com/Logout" target="_blank">Google Logout</a></li>
+      </ul>
+      <h3>Jobs Interested In:</h3>
+      <ul>
+        <li><a href="https://www.indeed.com/viewjob?jk=75bfdd461dc3478b&from=shareddesktop_copy" target="_blank">Google Writer</a></li>
+        <li><a href="https://www.indeed.com/viewjob?jk=20eeadd5194a08b7&from=shareddesktop_copy" target="_blank">NexTier Analyst</a></li>
+        <li><a href="https://g.co/kgs/ZD4YBWs" target="_blank">Sustainability Analyst CBRE</a></li>
+        <li><a href="https://g.co/kgs/BPhE8AY" target="_blank">Conversational AI Analyst</a></li>
+      </ul>
+    </div>
   </body>
 </html>
